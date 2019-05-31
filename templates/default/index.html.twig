@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <br>
+    <div class="container col-2">
+        <a href="{{ path('add_post') }}" class="btn btn-success" role="button" style="color: blue">Добавить
+            пост</a>
+    </div><br>
+    {% for post in posts %}
+        <div class="container">
+            <div class="col-12">
+                <div class="alert alert-primary">
+                    <h3><strong>Заголовок:</strong> {{ post.headline }}</h3>
+                    <strong>Дата публикации:</strong> {{ (post.postDate)|date('Y-m-d H:i:s') }}
+                </div>
+                <div class="btn btn-outline-info" style="color: black">
+                    <strong>Содержание поста:</strong>
+                    <p>
+                        {{ (post.text)|truncate(200, true, '') }}
+                        <a href="{{ path('post', {'id': post.id}) }}" style="color: blue">читать дальше...</a>
+                    </p>
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endfor %}
+
+{% endblock %}

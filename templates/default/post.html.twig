@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.headline }}{% endblock %}
+
+{% block body %}
+
+    <br>
+    <h2><strong>Заголовок: <em>{{ post.headline }}</em> </strong></h2>
+    <h4><strong>Дата публикации: <em>{{ (post.postDate)|date('Y-m-d H:i:s') }}</em> </strong></h4>
+    <div class="btn btn-outline-info">
+        <strong>Содержание поста:</strong>
+        <p> {{ post.text }}</p>
+    </div>
+    <br><br>
+    <div class="form-group">
+        <div class="col-sm-5">
+            {# на Главную страницу #}
+            <a href="{{ path('default') }}" class="btn btn-primary">
+                <i class="fas fa-home"> Главная страница</i></a>
+            {# на редактирование поста #}
+            <a href="{{ path('edit_post', {'id': post.id}) }}" class="btn btn-primary">
+                <i class="fas fa-edit"> Редактирование поста </i></a>
+        </div>
+    </div>
+{% endblock %}

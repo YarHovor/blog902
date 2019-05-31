@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <br>
+    {{ form_start(editForm, {'attr': {'novalidate': true}}) }}
+    {{ form_widget(editForm) }}
+
+    <div class="form-group">
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"> Сохранить</i></button>
+            <a href="{{ path('post', {'id': post.id}) }}" class="btn btn-primary">Вернуться к просмотру </a>
+        </div>
+    </div>
+
+    {{ form_end(editForm) }}
+
+{% endblock %}
+
+{% block title %}
+    Редактировать пост
+{% endblock %}
